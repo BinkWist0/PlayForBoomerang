@@ -25,9 +25,9 @@ class Hero {
     this.boomerang.fly();
   }
 
-  die() {
+  die(str) {
     this.skin = '💀';
-    console.log('YOU ARE DEAD!💀');
+    console.log(`YOU ARE ${str}!💀`);
     process.exit();
   }
 }
