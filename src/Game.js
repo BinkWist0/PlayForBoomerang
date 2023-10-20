@@ -38,11 +38,16 @@ class Game {
 
   check() {
     if (this.hero.position === this.enemy.position) {
-      this.hero.die();
+      
+      this.hero.die('DEAD');
     }
-    if (this.hero.boomerang.position === this.enemy.position) {
+    if (this.hero.position < 0){
+      this.hero.die('FIRE')
+    }
+    if (this.hero.boomerang.position === this.enemy.position || this.hero.boomerang.position === this.enemy.position + 1 || this.hero.boomerang.position === this.enemy.position - 1) {
       this.enemy.die();
       this.enemy = new Enemy({position: this.trackLength})
+      this.view.score += 10
     }
   }
 
