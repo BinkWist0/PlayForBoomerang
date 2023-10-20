@@ -5,7 +5,7 @@ class View {
     this.score = 0
   }
   render() {
-    const yourTeamName = '';
+    const yourTeamName = 'AID-64';
 
     // Тут всё рисуем.
     console.clear();
