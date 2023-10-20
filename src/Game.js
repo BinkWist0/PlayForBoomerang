@@ -19,7 +19,6 @@ class Game {
     this.boomerang = new Boomerang(trackLength);
     this.track = [];
     this.regenerateTrack();
-    this.live = 3;
   }
 
   regenerateTrack() {
@@ -39,12 +38,18 @@ class Game {
 
   check() {
     if (this.hero.position === this.enemy.position) {
-      this.live !== 1 ? this.live -= 1 : this.hero.die('DEAD');
+      if (this.view.live !== 0) {
+        this.view.live -= 1;
+        this.enemy.position = this.trackLength;
+      } else {
+        this.hero.die('DEAD');
+      }
     }
     if (this.hero.position < 0) {
-      if (this.live !== 1) {
-        this.live -= 1;
+      if (this.view.live !== 0) {
+        this.view.live -= 1;
         this.hero.position = 5;
+        this.enemy.position = this.trackLength;
       } else {
         this.hero.die('FIRE');
       }
