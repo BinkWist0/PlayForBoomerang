@@ -7,10 +7,14 @@ class View {
   }
 
   render() {
-    const yourTeamName = '';
+
+ 
     const array = Array.from({ length: this.live }, (item) => item = '❤️');
     const earth = this.game.track.map((item) => item = '🟩').join('');
     const strLive = array.join('');
+
+    const yourTeamName = 'AID-64';
+
     // Тут всё рисуем.
     console.clear();
     console.log('🔥', this.game.track.join(''));
